@@ -1,0 +1,28 @@
+== ChainedAssociations
+
+Use this plugin to chain together scopes and associations.
+
+== Example
+
+  class Pirate < ActiveRecord::Base
+    has_many :ships
+  
+    named_scope :evil, :conditions => {:type => 'evil'}
+    named_scope :very_evil, :conditions => {:type => 'very_evil'}
+  end
+
+  class Ship < ActiveRecord::Base
+  	belongs_to :pirate
+  	has_many   :sailors
+
+  	named_scope :heavy_loaded, :conditions => 'no_of_cannons > 16'
+  	named_scope :weak, :conditions => ['no_of_cannons <= 16']
+  end
+
+  Pirate.evil.ships.map(&:name)
+  # => ["Black Pearl", "HMS Interceptor", "Queen Anne's Revenge"]
+
+  Pirate.evil.ships.heavy_loaded.map(&:name)
+  # => ["Black Pearl", "Queen Anne's Revenge"]
+
+Copyright (c) 2009 Jan De Poorter, released under the MIT license

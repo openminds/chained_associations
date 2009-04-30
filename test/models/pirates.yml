@@ -1,0 +1,11 @@
+jack_sparrow:
+  name: Jack Sparrow
+  type: evil
+
+blackbeard:
+  name: Blackbeard
+  type: evil
+  
+hook:
+  name: James Hook
+  type: very_evil

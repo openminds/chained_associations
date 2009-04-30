@@ -1,0 +1,19 @@
+black_pearl:
+  name: Black Pearl
+  no_of_cannons: 32
+  pirate: jack_sparrow
+  
+interceptor:
+  name: HMS Interceptor
+  no_of_cannons: 16
+  pirate: jack_sparrow
+  
+queen_annes_revenge:
+  name: Queen Anne's Revenge 
+  no_of_cannons: 40
+  pirate: blackbeard
+
+jolly_roger: 
+  name: Jolly Roger
+  no_of_cannons: 12
+  pirate: hook

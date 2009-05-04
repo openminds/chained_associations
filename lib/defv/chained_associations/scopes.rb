@@ -5,12 +5,12 @@ module Defv
         base.alias_method_chain :method_missing, :association_chain
       end
       
-      def method_missing_with_association_chain(method, *args)
+      def method_missing_with_association_chain(method, *args, &block)
         if proxy_scope.reflections.include?(method)
           ids = find(:all, :include => method).map(&method).flatten.map(&:id)
           proxy_scope.reflections[method].klass.scoped(:conditions => {:id => ids})
         else
-          method_missing_without_association_chain(method, *args)
+          method_missing_without_association_chain(method, *args, &block)
         end
       end
     end

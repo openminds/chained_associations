@@ -11,7 +11,7 @@ require 'init'
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 ActiveRecord::Base.establish_connection({
   :adapter => 'sqlite3',
-  :dbfile => 'test.db'
+  :dbfile => ':memory:'
 })
 
 

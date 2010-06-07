@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'test/unit'
-require 'active_support'
+require 'active_support/all'
 require 'active_support/test_case'
+require 'active_model'
 require 'active_record'
 require 'active_record/fixtures'
 
@@ -10,8 +11,8 @@ require 'init'
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 ActiveRecord::Base.establish_connection({
-  :adapter => 'sqlite3',
-  :dbfile => ':memory:'
+  :adapter  => 'sqlite3',
+  :database => ':memory:'
 })
 
 

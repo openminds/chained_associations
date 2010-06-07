@@ -1,6 +1,8 @@
 class Pirate < ActiveRecord::Base
+  set_inheritance_column :not_used
+  
   has_many :ships
   
-  named_scope :evil, :conditions => {:type => 'evil'}
-  named_scope :very_evil, :conditions => {:type => 'very_evil'}
+  scope :evil, where(:type => 'evil')
+  scope :very_evil, where(:type => 'very_evil')
 end

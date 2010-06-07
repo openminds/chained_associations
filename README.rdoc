@@ -7,16 +7,16 @@ Use this plugin to chain together scopes and associations.
   class Pirate < ActiveRecord::Base
     has_many :ships
   
-    named_scope :evil, :conditions => {:type => 'evil'}
-    named_scope :very_evil, :conditions => {:type => 'very_evil'}
+    scope :evil, where(:type => 'evil')
+    scope :very_evil, where(:type => 'very_evil')
   end
 
   class Ship < ActiveRecord::Base
   	belongs_to :pirate
   	has_many   :sailors
 
-  	named_scope :heavy_loaded, :conditions => 'no_of_cannons > 16'
-  	named_scope :weak, :conditions => ['no_of_cannons <= 16']
+  	scope :heavy_loaded, where('no_of_cannons > 16')
+  	scope :weak, where('no_of_cannons <= 16')
   end
 
   Pirate.evil.ships.map(&:name)

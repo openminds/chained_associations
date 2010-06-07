@@ -1,2 +1,2 @@
-require 'defv/chained_associations/scopes'
+require 'defv/chained_associations/relation'
 require 'defv/chained_associations/associations'
